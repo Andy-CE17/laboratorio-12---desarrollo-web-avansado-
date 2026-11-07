@@ -22,8 +22,8 @@ export function Shell({ children }: { children: ReactNode }) {
   const catalog = path === "/books";
   return <div className="library-shell">
     <aside className="library-sidebar">
-      <Link href="/" className="brand"><span className="brand-icon"><BookOpen size={20}/></span><span>Biblioteca <em>Campos</em></span></Link>
-      <p className="sidebar-label">Biblioteca</p>
+      <Link href="/" className="brand"><span className="brand-icon"><BookOpen size={20}/></span><span>Biblioteca</span></Link>
+      <p className="sidebar-label">Navegación</p>
       <nav aria-label="Navegación principal">
         <Link className={catalog ? "" : "active"} aria-current={path === "/" ? "page" : undefined} href="/"><UsersRound size={18}/> Autores</Link>
         <Link className={catalog ? "active" : ""} aria-current={catalog ? "page" : undefined} href="/books"><LibraryBig size={18}/> Catálogo</Link>
@@ -42,14 +42,14 @@ export const editorialPortrait = "/editorial/gabo-retrato.webp";
 export function Hero({ label, title, accent, intro, action, portrait = true }: { label: string; title: string; accent?: string; intro: string; action?: ReactNode; portrait?: boolean }) {
   return <section className={`hero ${portrait ? "hero-portrait" : "hero-library"}`}>
     <div className="hero-photo">
-      <Image src={portrait ? editorialPortrait : "/editorial/estanteria.webp"} alt={portrait ? "Retrato ilustrado de Gabriel García Márquez" : ""} fill sizes="(max-width: 600px) 95vw, 480px" preload unoptimized/>
-      {portrait && <div className="hero-credit"><span>Gabriel García Márquez</span><small>Ilustración generada con IA</small></div>}
+      <Image src={portrait ? editorialPortrait : "/editorial/estanteria.webp"} alt={portrait ? "Retrato ilustrado de Gabriel García Márquez" : ""} fill preload unoptimized/>
     </div>
     <div className="hero-content">
     <p className="eyebrow"><span/>{label}</p>
     <h1>{title}{accent && <> <em>{accent}</em></>}</h1><p className="hero-intro">{intro}</p>
     {action}
     </div>
+    {portrait && <div className="hero-credit"><span>Gabriel García Márquez</span><small>Ilustración generada con IA</small></div>}
   </section>;
 }
 
