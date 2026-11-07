@@ -27,7 +27,7 @@ export default function AuthorDetail({id}:{id:string}) {
   const length = (b: Stats["longestBook"]) => b ? `${b.title} · ${b.pages} páginas` : "Sin páginas registradas";
   return <>
     <Link className="back" href="/"><ArrowLeft size={16}/> Volver a autores</Link>
-    <Hero label="Perfil de autor" title={author.name} intro={[author.nationality,author.birthYear].filter(Boolean).join(" · ") || "Ficha del directorio"}
+    <Hero label="Perfil de autor" title={author.name} portrait={author.email === "gabo@example.com" && author.name === "Gabriel García Márquez"} intro={[author.nationality,author.birthYear].filter(Boolean).join(" · ") || "Ficha del directorio"}
       action={<div className="row-actions"><button className="btn primary" onClick={()=>edit("book")}><Plus size={17}/> Agregar libro</button><button className="btn secondary" onClick={()=>edit("author")}><Pencil size={16}/> Editar autor</button></div>}/>
     <Notice error={error}/>
     <div className="profile-grid">

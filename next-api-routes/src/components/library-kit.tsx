@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { BookOpen, LibraryBig, X, LoaderCircle } from "lucide-react";
+import { ArrowUpRight, BookOpen, LibraryBig, UsersRound, X, LoaderCircle } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,25 +19,41 @@ export async function api<T>(path: string, init?: RequestInit): Promise<T> {
 
 export function Shell({ children }: { children: ReactNode }) {
   const path = usePathname();
-  return <>
-    <header className="top"><div className="top-inner">
+  const catalog = path === "/books";
+  return <div className="library-shell">
+    <aside className="library-sidebar">
       <Link href="/" className="brand"><span className="brand-icon"><BookOpen size={20}/></span><span>Biblioteca <em>Campos</em></span></Link>
+      <p className="sidebar-label">Biblioteca</p>
       <nav aria-label="Navegación principal">
-        <Link className={path === "/books" ? "" : "active"} href="/">Autores</Link>
-        <Link className={path === "/books" ? "active" : ""} href="/books">Catálogo</Link>
+        <Link className={catalog ? "" : "active"} aria-current={path === "/" ? "page" : undefined} href="/"><UsersRound size={18}/> Autores</Link>
+        <Link className={catalog ? "active" : ""} aria-current={catalog ? "page" : undefined} href="/books"><LibraryBig size={18}/> Catálogo</Link>
       </nav>
-    </div></header>
-    <main className="wrap">{children}</main>
-    <footer className="site-footer"><span>Biblioteca Campos</span><span>© 2026 Andy Campos</span></footer>
-  </>;
+      <div className="sidebar-footer"><span>Desarrollo web avanzado</span><strong>Laboratorio 12</strong></div>
+    </aside>
+    <div className="library-body">
+      <main className="wrap">{children}</main>
+      <footer className="site-footer"><span>Biblioteca Campos</span><span>© 2026 Andy Campos</span></footer>
+    </div>
+  </div>;
 }
 
-export function Hero({ label, title, accent, intro, action }: { label: string; title: string; accent?: string; intro: string; action?: ReactNode }) {
-  return <section className="hero"><div className="hero-content">
+const portraitSource = "https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez_(2009).jpg";
+
+export function Hero({ label, title, accent, intro, action, portrait = true }: { label: string; title: string; accent?: string; intro: string; action?: ReactNode; portrait?: boolean }) {
+  return <section className={`hero ${portrait ? "hero-portrait" : "hero-library"}`}>
+    <div className="hero-photo">
+      <Image src={portrait ? "/editorial/gabriel-garcia-marquez.webp" : "/editorial/estanteria.webp"} alt="" fill sizes="(max-width: 600px) 60vw, 480px" preload unoptimized/>
+    </div>
+    <div className="hero-content">
     <p className="eyebrow"><span/>{label}</p>
     <h1>{title}{accent && <> <em>{accent}</em></>}</h1><p className="hero-intro">{intro}</p>
     {action}
-  </div><LibraryBig className="hero-mark" aria-hidden="true"/></section>;
+    </div>
+    {portrait && <div className="hero-credit">
+      <a href={portraitSource} target="_blank" rel="noreferrer" title="Fotografía del Festival Internacional de Cine en Guadalajara, recortada y presentada en sepia">Gabriel García Márquez · FICG <ArrowUpRight size={12}/></a>
+      <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer">CC BY 2.0</a>
+    </div>}
+  </section>;
 }
 
 export function Notice({ error, loading }: { error?: string; loading?: boolean }) {

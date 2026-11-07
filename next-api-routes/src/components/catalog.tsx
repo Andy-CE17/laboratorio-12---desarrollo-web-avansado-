@@ -1,11 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { BookOpen, ChevronLeft, ChevronRight, Pencil, Plus, Search, Trash2 } from "lucide-react";
 import { api, DeleteRecord, Editor, Hero, Notice, type Author, type Book } from "./library-kit";
 
 const initial = {search:"",genre:"",authorId:"",sortBy:"createdAt",order:"desc",page:1};
 type Results = { data:Book[]; pagination:{page:number;total:number;totalPages:number;hasNext:boolean;hasPrev:boolean} };
+
+function bookBackground(book: Book) {
+  const title = book.title.toLocaleLowerCase("es");
+  if (/soledad|hojarasca|crónica|azoteas/.test(title)) return "macondo";
+  if (/faro|mar|náufrago|orilla|neblina|malecón/.test(title)) return "faro";
+  const genre = book.genre?.toLocaleLowerCase("es");
+  if (genre === "cuento" || genre === "poesía") return "estanteria";
+  return "escritorio";
+}
 
 export default function Catalog() {
   const [filters,setFilters] = useState(initial);
@@ -62,8 +72,9 @@ export default function Catalog() {
       <button className="btn secondary" onClick={()=>setFilters(initial)}>Restablecer filtros</button></div>
       <Notice error={current?.error} loading={!current}/>
       {paging?.total===0 && <p className="notice">No hay libros que coincidan con los filtros seleccionados.</p>}
-      <div className="book-grid">{current?.data?.data.map((b,i)=><article className="book-card" key={b.id}>
-        <div className={`book-band band-${i%3}`}><BookOpen size={22}/><span>{b.genre||"Sin género"}</span></div>
+      <div className="book-grid">{current?.data?.data.map(b=><article className="book-card" key={b.id}>
+        <Image className="book-photo" src={`/editorial/${bookBackground(b)}.webp`} alt="" fill sizes="(max-width: 570px) 100vw, (max-width: 1080px) 48vw, 33vw" unoptimized/>
+        <div className="book-band"><span className="book-glyph"><BookOpen size={18}/></span><span>{b.genre||"Sin género"}</span></div>
         <div className="book-content"><h3>{b.title}</h3>
           <Link className="book-author" href={`/authors/${b.authorId}`}>{b.author?.name ?? "Ver autor"}</Link>
           <p>{[b.publishedYear,b.pages ? `${b.pages} páginas` : null].filter(Boolean).join(" · ")||"Ficha sin datos de edición"}</p>

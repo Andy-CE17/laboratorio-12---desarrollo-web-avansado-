@@ -17,3 +17,8 @@ Para desarrollo local, usar Node 24 y pnpm. Configurar `DATABASE_URL` en un arch
 3. Separé los libros sin número de páginas de los cálculos de promedio y extremos para evitar que los datos faltantes alteren las estadísticas.
 4. Reutilicé las mismas rutas de autores y libros en las tres páginas; así, las validaciones se aplican aunque la solicitud venga de Thunder Client.
 5. Comprobé la búsqueda y las estadísticas contra Supabase y mantuve la cadena de conexión fuera del repositorio.
+
+## Créditos visuales
+
+- [Gabriel García Márquez en Guadalajara (2009)](https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez_(2009).jpg), Festival Internacional de Cine en Guadalajara, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Recorté la foto y la presenté con un filtro sepia.
+- Fondos del catálogo generados con la herramienta de imágenes de Codex: un pueblo caribeño bajo la lluvia, un escritorio con libro y café, un faro entre la niebla y libros rojos en una estantería. Son ilustraciones temáticas.
