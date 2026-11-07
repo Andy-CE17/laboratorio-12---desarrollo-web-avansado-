@@ -1,0 +1,218 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "Biblioteca Andy Campos",
+  "collectionId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+  "dateExported": "2026-11-07T16:00:00.000Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000001",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "01 Listé todos los autores",
+      "url": "http://127.0.0.1:3000/api/authors",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000002",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "02 Creé un autor",
+      "url": "http://127.0.0.1:3000/api/authors",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Gabriel García Márquez\",\n  \"email\": \"gabo@example.com\",\n  \"nationality\": \"Colombia\",\n  \"birthYear\": 1927,\n  \"bio\": \"Premio Nobel de Literatura 1982\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000003",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "03 Consulté un autor por ID",
+      "url": "http://127.0.0.1:3000/api/authors/{{authorId}}",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000004",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "04 Consulté los libros de un autor",
+      "url": "http://127.0.0.1:3000/api/authors/{{authorId}}/books",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000005",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "05 Actualicé un autor",
+      "url": "http://127.0.0.1:3000/api/authors/{{authorId}}",
+      "method": "PUT",
+      "sortNum": 50000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Gabriel García Márquez\",\n  \"bio\": \"Autor de Cien años de soledad\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000006",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "06 Listé todos los libros",
+      "url": "http://127.0.0.1:3000/api/books",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000007",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "07 Filtré los libros por género",
+      "url": "http://127.0.0.1:3000/api/books?genre=Novela",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000008",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "08 Creé un libro",
+      "url": "http://127.0.0.1:3000/api/books",
+      "method": "POST",
+      "sortNum": 80000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Cien años de soledad\",\n  \"description\": \"Obra maestra del realismo mágico\",\n  \"isbn\": \"978-0307474728\",\n  \"publishedYear\": 1967,\n  \"genre\": \"Novela\",\n  \"pages\": 417,\n  \"authorId\": \"{{authorId}}\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000009",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "09 Consulté un libro por ID",
+      "url": "http://127.0.0.1:3000/api/books/{{bookId}}",
+      "method": "GET",
+      "sortNum": 90000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000010",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "10 Actualicé un libro",
+      "url": "http://127.0.0.1:3000/api/books/{{bookId}}",
+      "method": "PUT",
+      "sortNum": 100000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"description\": \"Novela de Gabriel García Márquez publicada en 1967\",\n  \"pages\": 417\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000011",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "11 Eliminé un libro",
+      "url": "http://127.0.0.1:3000/api/books/{{bookId}}",
+      "method": "DELETE",
+      "sortNum": 110000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8d147ce0-6321-4aff-96ee-000000000012",
+      "colId": "88f1377a-e3de-4481-a97b-4073d91579e3",
+      "containerId": "",
+      "name": "12 Eliminé un autor de prueba",
+      "url": "http://127.0.0.1:3000/api/authors/{{authorId}}",
+      "method": "DELETE",
+      "sortNum": 120000,
+      "created": "2026-11-07T16:00:00.000Z",
+      "modified": "2026-11-07T16:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    }
+  ]
+}
