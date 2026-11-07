@@ -1,6 +1,5 @@
-import { redirect } from "next/navigation";
+import Dashboard from "@/components/dashboard";
 
-// La interfaz de gestión pertenece a la sección TAREA, todavía pendiente.
 export default function Home() {
-  redirect("/api/authors");
+  return <Dashboard/>;
 }
