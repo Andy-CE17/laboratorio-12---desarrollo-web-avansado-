@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowUpRight, BookOpen, LibraryBig, UsersRound, X, LoaderCircle } from "lucide-react";
+import { BookOpen, LibraryBig, UsersRound, X, LoaderCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,22 +37,19 @@ export function Shell({ children }: { children: ReactNode }) {
   </div>;
 }
 
-const portraitSource = "https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez_(2009).jpg";
+export const editorialPortrait = "/editorial/gabo-retrato.webp";
 
 export function Hero({ label, title, accent, intro, action, portrait = true }: { label: string; title: string; accent?: string; intro: string; action?: ReactNode; portrait?: boolean }) {
   return <section className={`hero ${portrait ? "hero-portrait" : "hero-library"}`}>
     <div className="hero-photo">
-      <Image src={portrait ? "/editorial/gabriel-garcia-marquez.webp" : "/editorial/estanteria.webp"} alt="" fill sizes="(max-width: 600px) 60vw, 480px" preload unoptimized/>
+      <Image src={portrait ? editorialPortrait : "/editorial/estanteria.webp"} alt={portrait ? "Retrato ilustrado de Gabriel García Márquez" : ""} fill sizes="(max-width: 600px) 95vw, 480px" preload unoptimized/>
+      {portrait && <div className="hero-credit"><span>Gabriel García Márquez</span><small>Ilustración generada con IA</small></div>}
     </div>
     <div className="hero-content">
     <p className="eyebrow"><span/>{label}</p>
     <h1>{title}{accent && <> <em>{accent}</em></>}</h1><p className="hero-intro">{intro}</p>
     {action}
     </div>
-    {portrait && <div className="hero-credit">
-      <a href={portraitSource} target="_blank" rel="noreferrer" title="Fotografía del Festival Internacional de Cine en Guadalajara, recortada y presentada en sepia">Gabriel García Márquez · FICG <ArrowUpRight size={12}/></a>
-      <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer">CC BY 2.0</a>
-    </div>}
   </section>;
 }
 

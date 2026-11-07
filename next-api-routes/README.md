@@ -20,5 +20,5 @@ Para desarrollo local, usar Node 24 y pnpm. Configurar `DATABASE_URL` en un arch
 
 ## Créditos visuales
 
-- [Gabriel García Márquez en Guadalajara (2009)](https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez_(2009).jpg), Festival Internacional de Cine en Guadalajara, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Recorté la foto y la presenté con un filtro sepia.
+- Retrato editorial de Gabriel García Márquez generado con la herramienta de imágenes de Codex. La portada lo identifica como ilustración generada con IA.
 - Fondos del catálogo generados con la herramienta de imágenes de Codex: un pueblo caribeño bajo la lluvia, un escritorio con libro y café, un faro entre la niebla y libros rojos en una estantería. Son ilustraciones temáticas.
